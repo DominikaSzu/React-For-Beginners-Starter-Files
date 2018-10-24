@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
 
@@ -9,7 +9,7 @@ render() {
 	return (
 	<div className="catch-of-the-day">
 		<div className="menu">
-			<Header />
+			<Header tagline="Fresh seafood market" />
 		</div>
 		<Order />
 		<Inventory />
