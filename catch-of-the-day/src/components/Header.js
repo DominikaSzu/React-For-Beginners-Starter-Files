@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Header = ({tagline}) => (
 	<header className="top">
 		<h1>
