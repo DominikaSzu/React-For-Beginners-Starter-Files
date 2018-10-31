@@ -21,6 +21,12 @@ loadSampleFishes = () => {
 	this.setState({ fishes: sampleFishes});
 }
 
+addToOrder = (key) => {
+	const order = {...this.state.order};
+	order[key] = order[key] + 1 || 1;
+	this.setState({ order });
+}
+
 render() {
 	return (
 	<div className="catch-of-the-day">
@@ -29,7 +35,7 @@ render() {
 			<ul className="fishes">
 			{Object.keys(this.state.fishes).map(key => {
 				return <Fish details={this.state.fishes[key]}
-					  key={key} />
+					  key={key} index={key} addToOrder={this.addToOrder} />
 			})}
 			</ul>
 		</div>
