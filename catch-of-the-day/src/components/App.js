@@ -14,11 +14,22 @@ state = {
 
 componentDidMount() {
     const { params } = this.props.match;
+    //reinstate localstorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+	if (localStorage) {
+		this.setState({ order: JSON.parse(localStorageRef)})
+	}
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: "fishes"
     });
   }
+
+componentDidUpdate() {
+	console.log('updated');
+	console.log(this.state.order);
+	localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order))
+}
 
 componentWillUnmount() {
 	base.removeBinding(this.ref);
